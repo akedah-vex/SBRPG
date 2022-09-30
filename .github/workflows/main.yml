@@ -80,18 +80,18 @@ jobs:
           git lfs pull
           git add .
           git reset --hard
-      # - name: Restore Library cache
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: Library
-      #     key: Library-build-WebGL
-      #     restore-keys: |
-      #       Library-build-
-      #       Library-
+      - name: Restore Library cache
+        uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-build-WebGL
+          restore-keys: |
+            Library-build-
+            Library-
       - uses: game-ci/unity-builder@v2
         with:
           targetPlatform: WebGL
-          allowDirtyBranch: true
+          allowDirtyBuild: true
 
       - uses: actions/upload-artifact@v2
         with:
@@ -134,6 +134,7 @@ jobs:
       - uses: game-ci/unity-builder@v2
         with:
           targetPlatform: StandaloneWindows64
+          allowDirtyBuild: true
 
       - uses: actions/upload-artifact@v2
         with:
@@ -178,6 +179,7 @@ jobs:
       - uses: game-ci/unity-builder@v2
         with:
           targetPlatform: Android
+          allowDirtyBuild: true
 
       - uses: actions/upload-artifact@v2
         with:
