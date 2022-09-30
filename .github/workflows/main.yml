@@ -11,7 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          lfs: false
+          lfs: true
 
       # # Cache
       # - uses: actions/cache@v2
@@ -39,6 +39,32 @@ jobs:
         with:
           targetPlatform: WebGL
           allowDirtyBuild: true
+
+      # Deploy to github pages
+      deployPages:
+          name: Deploy to Github Pages
+          needs: buildWebGL
+          runs-on: ubuntu-latest
+          steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - uses: actions/download-artifact@v2
+              with:
+                name: build-WebGL
+                path: build
+
+            - name: Display structure of root files
+              run: ls -R
+              working-directory: build/WebGL
+
+            - name: Deploy
+              uses: JamesIves/github-pages-deploy-action@4.1.4
+              with:
+                branch: gh-pages
+                folder: build/WebGL
+
+
 
       # Output
       - uses: actions/upload-artifact@v2
