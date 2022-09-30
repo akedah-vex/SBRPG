@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     name: Build my project ✨
-    runs-on: windows
+    runs-on: ubuntu-latest
     steps:
       # Checkout
       - name: Checkout repository
