@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         menusActive = true;
         previousArea = null;
         currentArea = null;
-        version = "0.0.3";
+        version = "0.0.31";
     }
 
     private void Update ()
