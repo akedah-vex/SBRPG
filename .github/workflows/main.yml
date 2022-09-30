@@ -91,7 +91,6 @@ jobs:
       - uses: game-ci/unity-builder@v2
         with:
           targetPlatform: WebGL
-          allowDirtyBranch: true
 
       - uses: actions/upload-artifact@v2
         with:
@@ -134,7 +133,6 @@ jobs:
       - uses: game-ci/unity-builder@v2
         with:
           targetPlatform: StandaloneWindows64
-          allowDirtyBranch: true
 
       - uses: actions/upload-artifact@v2
         with:
@@ -179,7 +177,6 @@ jobs:
       - uses: game-ci/unity-builder@v2
         with:
           targetPlatform: Android
-          allowDirtyBranch: true
 
       - uses: actions/upload-artifact@v2
         with:
@@ -198,7 +195,6 @@ jobs:
         with:
           name: build-WebGL
           path: build
-
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
