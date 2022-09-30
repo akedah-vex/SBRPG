@@ -1,4 +1,4 @@
-name: Actions 😎
+name: CI/CD Pipeline
 
 on: [push]
 
@@ -11,7 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          lfs: true
+          lfs: false
 
       # # Cache
       # - uses: actions/cache@v2
